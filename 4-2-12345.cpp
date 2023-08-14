@@ -7,36 +7,35 @@
     下列程序读入了排列 P ，使用双向链表求解了答案。
     试补全程序。
 */
-#include <iostream>
+#include<iostream>
 using namespace std;
-
-const int N = 100010;
+const int N=100010;
 int n;
-int L[N], R[N], a[N];
-
-int main() {
-    cin >> n;
-    for (int i = 1; i <= n; ++i) {
+int L[N],R[N],a[N];
+int main()
+{
+    cin>>n;
+    for(int i=1;i<=n;++i)
+    {
         int x;
-        cin >> x;
-        /*1->*/a[x]=i/*<-1*/;
+        cin>>x;
+        /*1->*/a[x]=i/*<-1*/;//输入x，并将a[x]赋值为i
     }
-    
-    for (int i = 1; i <= n; ++i) {
-        R[i] = /*2->*/ i+1 /*<-2*/;
-        L[i] = i - 1;
+    for(int i=1;i<=n;++i)
+    {
+        R[i]=/*2->*/i+1/*<-2*/;//给R数组和L数组赋初值
+        L[i]=i-1;
     }
-    
-    for (int i = 1; i <= n; ++i) {
-        L[/*3->*/R[a[i]]/*<-3*/] = L[a[i]];
-        R[L[a[i]]] = R[/*4->*/a[i]/*<-4*/];
+    for(int i=1;i<=n;++i)
+    {
+        L[/*3->*/R[a[i]]/*<-3*/]=L[a[i]];//按顺序看
+        R[L[a[i]]]=R[/*4->*/a[i]/*<-4*/];//按顺序看
     }
-    
-    for (int i = 1; i <= n; ++i) {
-    	cout <</*5->*/ R[i] /*<-5*/<< " ";
+    for(int i=1;i<=n;++i)
+    {
+    	cout<</*5->*/R[i]/*<-5*/<<" ";//输出R[i]
     }
-    
-    cout << endl;
+    cout<<endl;
     return 0;
 }
 /*
