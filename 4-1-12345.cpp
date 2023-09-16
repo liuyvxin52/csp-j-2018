@@ -10,7 +10,7 @@
 using namespace std;
 const int N=110000,P=10007;//P：对结果取模的10007
 int n;
-int a[N],len;
+int a[N], len;
 int ans;
 void getDivisor()
 {
